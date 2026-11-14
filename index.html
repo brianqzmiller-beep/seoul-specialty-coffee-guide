@@ -48,13 +48,13 @@ p{margin:0 0 12px}
 
 /* NAV */
 .topnav{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.topnav-inner{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;gap:8px;align-items:center;overflow-x:auto;scrollbar-width:none}
+.topnav-inner{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;gap:8px;align-items:center;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
 .topnav-inner::-webkit-scrollbar{display:none}
-.brand{font-family:"Newsreader",serif;font-weight:800;font-size:18px;white-space:nowrap;margin-right:8px;color:var(--ink);text-decoration:none}
-.navlinks{display:flex;gap:6px}
-.navlinks a{white-space:nowrap;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:600}
+.brand{font-family:"Newsreader",serif;font-weight:800;font-size:18px;white-space:nowrap;flex-shrink:0;margin-right:8px;color:var(--ink);text-decoration:none}.brand-short{display:none}
+.navlinks{display:flex;gap:6px;flex-wrap:nowrap;flex-shrink:0}
+.navlinks a{white-space:nowrap;flex-shrink:0;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);text-decoration:none;font-size:13.5px;font-weight:600}
 .navlinks a.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-@media(max-width:640px){.topnav-inner{flex-wrap:wrap;overflow-x:visible}.navlinks{flex-wrap:wrap}}
+@media(max-width:640px){.topnav-inner{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding:6px 10px;max-height:52px}.navlinks{flex-wrap:nowrap}.navlinks a{padding:6px 10px;font-size:13px}.brand{font-size:15px;margin-right:4px}.brand-full{display:none}.brand-short{display:inline}}
 
 /* HERO */
 .hero{position:relative;margin:18px 20px 0;border-radius:24px;overflow:hidden;max-width:1120px;margin-left:auto;margin-right:auto;box-shadow:var(--shadow-lg);min-height:540px;display:flex;align-items:flex-end}
@@ -213,8 +213,9 @@ footer{margin-top:56px;border-top:1px solid var(--line);padding:28px 0 44px}
 
 <nav class="topnav" aria-label="Guide sections">
   <div class="topnav-inner">
-    <a class="brand" href="#top">Seoul Coffee Guide</a>
+    <a class="brand" href="#top"><span class="brand-full">Seoul Coffee Guide</span><span class="brand-short">Seoul</span></a>
     <div class="navlinks" id="navLinks">
+      <a href="#index">☰ Contents</a>
       <a href="#map">Map</a>
       <a href="#index">Index</a>
       <a href="#favorites">Favorites</a>
